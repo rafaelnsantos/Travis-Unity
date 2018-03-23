@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -e
+
 BASE_URL=https://download.unity3d.com/download_unity
 HASH=a9f86dcd79df
 VERSION=2017.3.0f3
@@ -9,19 +11,27 @@ download() {
   url="$BASE_URL/$HASH/$package"
 
   echo "Downloading from $url: "
+  cd Unity
   curl -o `basename "$package"` "$url"
+  cd ../
 }
 
 install() {
   package=$1
-  download "$package"
+  filename=`basename "$package"`
+  packagePath="Unity/$filename"
+  if [ ! -f $packagePath ] ; then
+    echo "$packagePath not found. downloading `basename "$packagePath"`"
+    download "$package"
+  fi
 
   echo "Installing "`basename "$package"`
-  sudo installer -dumplog -package `basename "$package"` -target /
+  sudo installer -dumplog -package $packagePath -target /
 }
 
-# See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
-# of available packages, where PLATFORM is `osx` or `win`
+if [ ! -d "Unity" ] ; then
+ mkdir -p -m 777 Unity
+fi
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"

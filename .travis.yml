@@ -5,12 +5,18 @@ osx_image: xcode9.2
 rvm:
 - 2.2
 
+cache:
+  directories:
+    - ./Unity
+
 before_install:
-- chmod a+x ./Scripts/install.sh
-- chmod a+x ./Scripts/build.sh
+- chmod a+x ./Travis/install.sh
 
 install:
-- ./Scripts/install.sh
+- ./Travis/install.sh
+
+before_script:
+- chmod a+x ./Travis/build.sh
 
 script:
-- travis_wait 30 ./Scripts/build.sh
+- travis_wait 30 ./Travis/build.sh
