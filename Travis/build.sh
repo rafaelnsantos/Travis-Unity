@@ -18,28 +18,28 @@ echo "Attempting to build $project for Windows"
  -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
  -quit
 
-# echo "Attempting to build $project for OS X"
-# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
-#  -batchmode \
-#  -nographics \
-#  -silent-crashes \
-#  -logFile \
-#  -projectPath $(pwd)/ \
-#  -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
-#  -quit
+echo "Attempting to build $project for OS X"
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+ -batchmode \
+ -nographics \
+ -silent-crashes \
+ -logFile \
+ -projectPath $(pwd)/ \
+ -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
+ -quit
 
-# echo "Attempting to build $project for Linux"
-# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
-#  -batchmode \
-#  -nographics \
-#  -silent-crashes \
-#  -logFile \
-#  -projectPath $(pwd)/ \
-#  -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project" \
-#  -quit
+echo "Attempting to build $project for Linux"
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+ -batchmode \
+ -nographics \
+ -silent-crashes \
+ -logFile \
+ -projectPath $(pwd)/ \
+ -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project" \
+ -quit
 
-#echo "Attempting to build $project for WebGL"
-#/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+# echo "Attempting to build $project for WebGL"
+# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
 #  -batchmode \
 #  -nographics \
 #  -silent-crashes \

@@ -11,30 +11,19 @@ download() {
   url="$BASE_URL/$HASH/$package"
 
   echo "Downloading from $url: "
-  cd Unity
   curl -o `basename "$package"` "$url"
-  cd ../
 }
 
 install() {
   package=$1
-  filename=`basename "$package"`
-  packagePath="Unity/$filename"
-  if [ ! -f $packagePath ] ; then
-    echo "$packagePath not found. downloading `basename "$packagePath"`"
-    download "$package"
-  fi
+  download "$package"
 
   echo "Installing "`basename "$package"`
-  sudo installer -dumplog -package $packagePath -target /
+  sudo installer -dumplog -package `basename "$package"` -target /
 }
-
-if [ ! -d "Unity" ] ; then
- mkdir -p -m 777 Unity
-fi
 
 install "MacEditorInstaller/Unity-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-# install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
-# install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
-# install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
+install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
+install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
+install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
