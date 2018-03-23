@@ -5,6 +5,10 @@ os: osx
 rvm:
 - 2.1.2
 
+cache:
+  directories:
+  - ./Unity
+
 before_install:
 - chmod a+x ./Travis/install.sh
 
