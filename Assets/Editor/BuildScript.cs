@@ -10,7 +10,7 @@ public class BuildScript {
     }
 
     public static void Build(BuildTarget target) {
-        string[] levels = { "Assets/Scene.unity" };
+        string[] levels = { "Assets/Scenes/Scene.unity" };
         BuildPipeline.BuildPlayer(levels.ToArray(), Environment.GetCommandLineArgs().Last(), target, BuildOptions.None);
     }
 }
