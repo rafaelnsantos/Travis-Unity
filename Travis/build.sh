@@ -38,15 +38,15 @@ echo "Attempting to build $project for Linux"
  -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project" \
  -quit
 
-# echo "Attempting to build $project for WebGL"
-# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
-#  -batchmode \
-#  -nographics \
-#  -silent-crashes \
-#  -logFile \
-#  -projectPath $(pwd)/ \
-#  -quit \
-#  -executeMethod BuildScript.BuildWebGL "$(pwd)/Build/webgl/$project/"
+echo "Attempting to build $project for WebGL"
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+ -batchmode \
+ -nographics \
+ -silent-crashes \
+ -logFile \
+ -projectPath $(pwd)/ \
+ -quit \
+ -executeMethod BuildScript.BuildWebGL "$(pwd)/Build/webgl/$project/"
 
 # export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 # export ANDROID_NDK_HOME="/usr/local/share/android-ndk"

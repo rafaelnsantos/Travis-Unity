@@ -9,6 +9,7 @@ cache:
   directories:
   - ./Unity
   - /Applications/Unity
+  timeout: 1000
 
 before_install:
 - chmod a+x ./Travis/install.sh
@@ -42,6 +43,6 @@ deploy:
   skip-cleanup: true
   github-token: $GIT_TOKEN
   keep-history: true
-  local-dir: ./Build/webgl/Travis-Unity/
+  local-dir: ./Build/
   on:
     branch: master
