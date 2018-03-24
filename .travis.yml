@@ -24,9 +24,9 @@ script:
 - ./Travis/build.sh
 
 before_deploy:
-      - git config --local user.name "Travis"
-      - git config --local user.email "travis@org"
-      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- git config --local user.name "travisbot"
+- git config --local user.email "travis-ci@org"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 deploy:
   provider: releases
@@ -36,8 +36,6 @@ deploy:
   - ./Build/mac.zip
   - ./Build/linux.zip
   skip_cleanup: true
-  on:
-    branch: master
 
   provider: pages
   skip-cleanup: true
