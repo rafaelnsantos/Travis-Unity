@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Travis-Unity",
+"dataUrl": "Travis-Unity.data.unityweb",
+"asmCodeUrl": "Travis-Unity.asm.code.unityweb",
+"asmMemoryUrl": "Travis-Unity.asm.memory.unityweb",
+"asmFrameworkUrl": "Travis-Unity.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
