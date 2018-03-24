@@ -37,6 +37,7 @@ deploy:
   file: /Build/webgl/*.zip
   skip_cleanup: true
   on:
+    repo: rafaelnsantos/Travis-Unity
     branch: master
 
   provider: pages
