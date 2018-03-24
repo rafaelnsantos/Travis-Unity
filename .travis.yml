@@ -30,8 +30,10 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GIT_TOKEN
-  file_glob: true
-  file: ./Release/*
+  file:
+  - ./Build/windows.zip
+  - ./Build/mac.zip
+  - ./Build/linux.zip
   skip_cleanup: true
   on:
     branch: master
@@ -40,7 +42,6 @@ deploy:
   skip-cleanup: true
   github-token: $GIT_TOKEN
   keep-history: true
-  # local-dir: ./Build/webgl/Travis-Unity/
-  local-dir: ./Build
+  local-dir: ./Build/webgl/Travis-Unity/
   on:
     branch: master
