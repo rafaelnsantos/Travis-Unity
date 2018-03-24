@@ -30,14 +30,14 @@ deploy:
   provider: releases
   api_key: $GIT_TOKEN
   target_commitish: $TRAVIS_COMMIT
-  tag_name: $TRAVIS_TAG
-  name: Travis-Unity $TRAVIS_TAG
+  tag_name: $(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
+  name: Travis-Unity $(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
   body: Automated release from Travis CI.
   file_glob: true
   file: /Build/webgl/*.zip
   skip_cleanup: true
   on:
-    tags: true
+    branch: master
 
   provider: pages
   skip-cleanup: true
@@ -45,4 +45,4 @@ deploy:
   local-dir: ./Build/webgl/
   keep-history: true
   on:
-    tags: true
+    branch: master
