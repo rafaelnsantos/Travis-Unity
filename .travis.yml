@@ -20,3 +20,16 @@ before_script:
 
 script:
 - ./Travis/build.sh
+
+deploy:
+     provider: releases
+     api_key:
+         secure: $GIT_TOKEN
+     file: 
+         - 'Travis-Unity/Build/windows/Travis-Unity.exe'
+         - 'Travis-Unity/Build/osx/Travis-Unity.app'
+         - 'Travis-Unity/Build/linux/Travis-Unity'
+     skip_cleanup: true
+     on:
+         repo: rafaelnsantos/Travis-Unity
+         tags: true
