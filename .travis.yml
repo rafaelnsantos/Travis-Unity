@@ -8,8 +8,6 @@ rvm:
 cache:
   directories:
   - ./Unity
-  - /Applications/Unity
-  timeout: 1000
 
 before_install:
 - chmod a+x ./Travis/install.sh
