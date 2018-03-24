@@ -33,7 +33,7 @@ if [ ! -d "Unity" ] ; then
  mkdir -p -m 777 Unity
 fi
 
-if [ ! -f "/Applications/Unity/Unity.app"] ; then
+if [ ! -f "/Applications/Unity/Unity.app/Contents/MacOS/Unity" ] ; then
   echo "Unity3D not found. Instaling Unity"
   install "MacEditorInstaller/Unity-$VERSION.pkg"
   install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
