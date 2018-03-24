@@ -9,11 +9,6 @@ cache:
   directories:
   - ./Unity
 
-addons:
-  sonarcloud:
-    organization: "travis-cloud"
-    token: $SONAR_CLOUD
-
 before_install:
 - chmod a+x ./Travis/install.sh
 
@@ -25,7 +20,6 @@ before_script:
 
 script:
 - ./Travis/build.sh
-- sonar-scanner
 
 before_deploy:
 - git config --local user.name "travisbot"
