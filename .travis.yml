@@ -36,11 +36,13 @@ deploy:
   - ./Build/mac.zip
   - ./Build/linux.zip
   skip_cleanup: true
+  on:
+    branch: master
 
   provider: pages
   skip-cleanup: true
   github-token: $GIT_TOKEN
-  keep-history: true
   local-dir: ./Build/
+  keep-history: true
   on:
     branch: master
