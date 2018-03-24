@@ -23,7 +23,7 @@ script:
 - ./Travis/build.sh
 
 # todo: fix this
-# deploy:
+deploy:
 #   provider: releases
 #   api_key: $GIT_TOKEN
 #   file:
