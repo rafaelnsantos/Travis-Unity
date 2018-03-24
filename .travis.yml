@@ -22,15 +22,19 @@ before_script:
 script:
 - ./Travis/build.sh
 
-# todo: fix this
+before_deploy:
+      - git config --local user.name "Travis"
+      - git config --local user.email "travis@org"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
   provider: releases
   api_key: $GIT_TOKEN
   file_glob: true
-  file: ./Build/*
+  file: ./Release/*
   skip_cleanup: true
   on:
-    tags: true
+    branch: master
 
   provider: pages
   skip-cleanup: true
@@ -39,4 +43,4 @@ deploy:
   # local-dir: ./Build/webgl/Travis-Unity/
   local-dir: ./Build
   on:
-    tags: true
+    branch: master
