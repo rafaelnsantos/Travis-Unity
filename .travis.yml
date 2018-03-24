@@ -22,21 +22,23 @@ before_script:
 script:
 - ./Travis/build.sh
 
-deploy:
-  provider: releases
-  api_key: $GIT_TOKEN
-  file:
-  - ./Build/windows/Travis-Unity.exe
-  - ./Build/osx/Travis-Unity.app
-  - ./Build/linux/Travis-Unity
-  skip_cleanup: true
-  on:
-    tags: true
+# todo: fix this
+# deploy:
+#   provider: releases
+#   api_key: $GIT_TOKEN
+#   file:
+#   - ./Build/windows/Travis-Unity.exe
+#   - ./Build/osx/Travis-Unity.app
+#   - ./Build/linux/Travis-Unity
+#   skip_cleanup: true
+#   on:
+#     tags: true
 
   provider: pages
   skip-cleanup: true
   github-token: $GIT_TOKEN
   keep-history: true
-  local-dir: ./Build/webgl/Travis-Unity/
+  # local-dir: ./Build/webgl/Travis-Unity/
+  local-dir: ./Build
   on:
     tags: true
