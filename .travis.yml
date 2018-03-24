@@ -9,6 +9,11 @@ cache:
   directories:
   - ./Unity
 
+addons:
+  sonarcloud:
+    organization: "travis-cloud"
+    token: $SONAR_CLOUD
+
 before_install:
 - chmod a+x ./Travis/install.sh
 
@@ -30,9 +35,9 @@ deploy:
   provider: releases
   api_key: $GIT_TOKEN
   file:
-  - ./Build/windows.zip
-  - ./Build/mac.zip
-  - ./Build/linux.zip
+  - ./Build/webgl/windows.zip
+  - ./Build/webgl/mac.zip
+  - ./Build/webgl/linux.zip
   skip_cleanup: true
   on:
     branch: master
