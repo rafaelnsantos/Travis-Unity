@@ -1,5 +1,9 @@
 language: objective-c
 
+addons:
+  sonarcloud:
+    organization: "rafaelnsantos-github"
+
 os: osx
 
 rvm:
@@ -19,23 +23,21 @@ before_script:
 - chmod a+x ./Travis/build.sh
 
 script:
+- sonar-scanner -Dsonar.projectKey=travis-unity -Dsonar.organization=rafaelnsantos-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
 - ./Travis/build.sh
-
-before_deploy:
-- git config --local user.name "travisbot"
-- git config --local user.email "travis-ci@org"
-- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 deploy:
   provider: releases
   api_key: $GIT_TOKEN
-  file:
-  - "./Build/webgl/windows.zip"
-  - "./Build/webgl/mac.zip"
-  - "./Build/webgl/linux.zip"
+  target_commitish: $TRAVIS_COMMIT
+  tag_name: $TRAVIS_TAG
+  name: Travis-Unity $TRAVIS_TAG
+  body: Automated release from Travis CI.
+  file_glob: true
+  file: /Build/webgl/*.zip
   skip_cleanup: true
   on:
-    branch: master
+    tags: true
 
   provider: pages
   skip-cleanup: true
@@ -43,4 +45,4 @@ deploy:
   local-dir: ./Build/webgl/
   keep-history: true
   on:
-    branch: master
+    tags: true
