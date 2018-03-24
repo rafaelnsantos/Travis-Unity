@@ -25,16 +25,17 @@ deploy:
   provider: releases
   api_key: $GIT_TOKEN
   file:
-      - 'Travis-Unity/Build/windows/Travis-Unity.exe'
-      - 'Travis-Unity/Build/osx/Travis-Unity.app'
-      - 'Travis-Unity/Build/linux/Travis-Unity'
+  - ./Build/windows/Travis-Unity.exe
+  - ./Build/osx/Travis-Unity.app
+  - ./Build/linux/Travis-Unity
   skip_cleanup: true
   on:
-      tags: true
+    tags: true
+    
   provider: pages
   skip-cleanup: true
-  github-token: $GIT_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  github-token: $GIT_TOKEN
   keep-history: true
-  local-dir: 'Travis-Unity/Build/webgl/Travis-Unity/'
+  local-dir: ./Build/webgl/Travis-Unity/
   on:
     tags: true
