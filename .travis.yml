@@ -25,6 +25,7 @@ before_script:
 
 script:
 - ./Travis/build.sh
+- sonar-scanner
 
 before_deploy:
 - git config --local user.name "travisbot"
