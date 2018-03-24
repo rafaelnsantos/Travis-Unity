@@ -8,6 +8,7 @@ rvm:
 cache:
   directories:
   - ./Unity
+  - /Applications/Unity
 
 before_install:
 - chmod a+x ./Travis/install.sh
@@ -31,7 +32,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    
+
   provider: pages
   skip-cleanup: true
   github-token: $GIT_TOKEN

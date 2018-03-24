@@ -33,7 +33,9 @@ if [ ! -d "Unity" ] ; then
  mkdir -p -m 777 Unity
 fi
 
-install "MacEditorInstaller/Unity-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
-install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
+if [ ! -d "/Applications/Unity"] ; then
+  install "MacEditorInstaller/Unity-$VERSION.pkg"
+  install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
+  install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
+  install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
+fi
