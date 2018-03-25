@@ -41,7 +41,7 @@ deploy:
   - ./Build/windows.zip
   - ./Build/mac.zip
   - ./Build/linux.zip
-  name: $(date +'%Y.%m.%d %H%M')
+  name: $(date +'%Y.%m.%d %H:%M')
   skip_cleanup: true
   on:
     branch: master
