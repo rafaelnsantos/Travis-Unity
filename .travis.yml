@@ -25,24 +25,20 @@ script:
 - ./Travis/build.sh
 
 deploy:
-  provider: releases
-  api_key:
-    secure: "hTvbYet76LlS6g38AsnYBUe27ro4naIU1Wfibk3Zue/nRIWeJf/f2CAy2XAFgPnbv1U37QtIZqYkzsTYJ9w+qZ4rAAY5etUMfbzPHeWQeZJAZSBQ6S293isviPFxGxvsf4GAQYlg22UFzHFOgRQEhW0Yw2QxYzCyCSSgIqDAE6mQMy
-udJDQyFMRcNpSBPk3DqoH1nfiHV43mqU7Oh0lqgNhM/YEapD4jvpYLioJF5hz1CEomlTTyqsSTPGRzLd6/IKzX+9n2KdrAl0SIthsNO6CpXsDnBWVkgN6ebz8AcbkrZdRHvUwZ7ENQmWgkeWuVl6ETLHDlg7qZW7UA8wc1ag+KkDocRkUXgL8LWkg
-1Q0vjNhPP3Nh7xSnDO2NdHdGXlhrp5v/PUr4SOmlIiHIBKCzmM2HniHs8PCoFuEkFCjwkeki4Oa+S39DEtv4HKqIK2/t9AnMOjt9cs3iGC2bhHBc5ASc0qq1tG1UavThPew3ap1hNco/oWnT9ekry+qcD50JWrQOCwBlQThBpC6zctWpAamQfJY5x
-WvWuAaPcgWnBTikLZnKHDTWq5Sl3KSBwAPQo8A5/u3Q4saFmLMWCEFL2Bwv/9SYBI+EhbjXEMAJKSuGOUUt09aT7G/B2jSGBfu8KyEaw8evxd8jNl+uFKOffVCgXuXz0/+SgQKA8+/g="
-  file: 
-  - ./Build/windows.zip
-  - ./Build/mac.zip
-  - ./Build/linux.zip
-  skip_cleanup: true
-  on:
-    branch: master
+  - provider: releases
+    api_key: $GIT_TOKEN
+    file: 
+    - ./Build/windows.zip
+    - ./Build/mac.zip
+    - ./Build/linux.zip
+    skip_cleanup: true
+    on:
+      branch: master
 
-  provider: pages
-  skip-cleanup: true
-  github-token: $GIT_TOKEN
-  local-dir: ./Build/webgl/
-  keep-history: true
-  on:
-    branch: master
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GIT_TOKEN
+    local-dir: ./Build/webgl/
+    keep-history: true
+    on:
+      branch: master
