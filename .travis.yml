@@ -24,6 +24,11 @@ script:
 - sonar-scanner -Dsonar.projectKey=travis-unity -Dsonar.organization=rafaelnsantos-github -Dsonar.sources=. -Dsonar.language=cs -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
 - ./Travis/build.sh
 
+before_deploy:
+- git config --local user.name "traviscibot"
+- git config --local user.email "traviscibot@travisci.org"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
 - provider: releases
   api_key: $GIT_TOKEN
@@ -31,7 +36,7 @@ deploy:
   - ./Build/windows.zip
   - ./Build/mac.zip
   - ./Build/linux.zip
-  name: Travis-Unity $(date +'%d.%m.%Y %R')
+  name: $(date +'%d.%m.%Y %R')
   skip_cleanup: true
   on:
     branch: master
