@@ -27,6 +27,7 @@ script:
 deploy:
   provider: releases
   api_key: $GIT_TOKEN
+  github-token: $GIT_TOKEN
   file_glob: "true"
   file: /Build/webgl/*.zip
   skip_cleanup: true
