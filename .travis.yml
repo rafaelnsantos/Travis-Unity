@@ -30,9 +30,8 @@ script:
 - ./Travis/build.sh
 
 before_deploy:
-- git config --local user.name "traviscibot"
 - git config --local user.email "traviscibot@travisci.org"
-- git tag "$(date +'%d.%m.%Y-%R')"
+- git tag "$(date +'%Y%m%d%H%M%S')"
 
 deploy:
 - provider: releases
