@@ -21,6 +21,7 @@ cache:
 before_install:
 - chmod a+x ./Travis/install.sh
 - chmod a+x ./Travis/build.sh
+- chmod a+x ./Travis/tag.sh
 
 install:
 - ./Travis/install.sh
@@ -29,10 +30,8 @@ script:
 - sonar-scanner -Dsonar.projectKey=travis-unity -Dsonar.organization=rafaelnsantos-github -Dsonar.sources=. -Dsonar.language=cs -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
 - ./Travis/build.sh
 
-before_deploy:
-- git config --local user.name "traviscibot"
-- git config --local user.email "traviscibot@travisci.org"
-- git tag "v$(date +'%Y.%m.%d.%H%M%S')"
+after_success:
+- ./Travis/tag.sh
 
 deploy:
 - provider: releases
