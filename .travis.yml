@@ -27,17 +27,9 @@ script:
 deploy:
   provider: releases
   api_key: $GIT_TOKEN
-  github-token: $GIT_TOKEN
   file_glob: "true"
   file: /Build/webgl/*.zip
   skip_cleanup: true
   on:
     repo: rafaelnsantos/Travis-Unity
-    branch: master
-  provider: pages
-  skip-cleanup: true
-  github-token: $GIT_TOKEN
-  local-dir: ./Build/webgl/
-  keep-history: true
-  on:
     branch: master
