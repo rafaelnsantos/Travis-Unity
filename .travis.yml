@@ -27,7 +27,7 @@ script:
 before_deploy:
 - git config --local user.name "traviscibot"
 - git config --local user.email "traviscibot@travisci.org"
-- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- git tag "$(date +'%d.%m.%Y %R')"
 
 deploy:
 - provider: releases
