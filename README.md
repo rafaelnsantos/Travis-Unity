@@ -4,14 +4,14 @@
 # Travis-Unity
 Unity3D automated builds and release.
 
-[x] Windows
+- [x] Windows
 
-[x] Mac
+- [x] Mac
 
-[x] Linux
+- [x] Linux
 
-[x] WebGL
+- [x] WebGL
 
-[ ] Android
+- [ ] Android
 
-[ ] iOS
+- [ ] iOS
