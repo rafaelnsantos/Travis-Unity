@@ -63,6 +63,6 @@ echo "Attempting to build $project for WebGL"
 # -executeMethod BuildScript.BuildAndroid $(pwd)/Build/android/${project}.${versionName}.apk
 
 echo 'Attempting to zip builds'
-zip -r ./Build/linux.zip ./Build/linux
-zip -r ./Build/mac.zip ./Build/osx
-zip -r ./Build/windows.zip ./Build/windows
+zip -r ./Build/linux.zip -i ./Build/linux
+zip -r ./Build/mac.zip -i ./Build/osx
+zip -r ./Build/windows.zip -i ./Build/windows
