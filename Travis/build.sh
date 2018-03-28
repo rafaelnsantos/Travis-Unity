@@ -63,7 +63,6 @@ echo "Attempting to build $project for WebGL"
 # -executeMethod BuildScript.BuildAndroid $(pwd)/Build/android/${project}.${versionName}.apk
 
 echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/linux.zip . -i $(pwd)/Build/linux
-zip -r $(pwd)/Build/mac.zip . -i $(pwd)/Build/osx
-zip -r $(pwd)/Build/windows.zip . -i $(pwd)/Build/windows
-hdiutil create -format UDZO -srcfolder $(pwd)/Build/osx $(pwd)/Build/mac.dmg
+zip -r $(pwd)/Build/linux.zip $(pwd)/Build/linux/
+zip -r $(pwd)/Build/mac.zip $(pwd)/Build/osx/
+zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
