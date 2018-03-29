@@ -28,7 +28,7 @@ install:
 - ./Travis/install.sh
 
 script:
-- sonar-scanner -Dsonar.projectKey=travis-unity -Dsonar.organization=rafaelnsantos-github -Dsonar.sources=. -Dsonar.language=cs -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+- sonar-scanner
 - ./Travis/build.sh
 
 after_success:
@@ -39,8 +39,8 @@ deploy:
   api_key: $GIT_TOKEN
   file: 
   - ./Build/windows.zip
-  - ./Build/mac.zip
-  - ./Build/linux.zip
+  - ./Build/linux.tar.gz
+  - ./Build/osx.dmg
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
   skip_cleanup: true
   on:
