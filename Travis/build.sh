@@ -15,7 +15,7 @@ echo "Attempting to build $project for Windows"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -executeMethod BuildScript.Windows "$(pwd)/Build/windows/$project.exe" \
+ -executeMethod BuildScript.Windows \
  -quit
 
 echo "Attempting to build $project for OS X"
@@ -25,7 +25,7 @@ echo "Attempting to build $project for OS X"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -executeMethod BuildScript.OSX "$(pwd)/Build/osx/$project.app" \
+ -executeMethod BuildScript.OSX \
  -quit
 
 echo "Attempting to build $project for Linux"
@@ -35,7 +35,7 @@ echo "Attempting to build $project for Linux"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -executeMethod BuildScript.Linux "$(pwd)/Build/linux/$project" \
+ -executeMethod BuildScript.Linux \
  -quit
 
 echo "Attempting to build $project for WebGL"
@@ -60,7 +60,7 @@ echo "Attempting to build $project for WebGL"
 #   -logFile \
 #   -projectPath $(pwd)/ \
 #   -quit \
-# -executeMethod BuildScript.BuildAndroid $(pwd)/Build/android/${project}.${versionName}.apk
+#   -executeMethod BuildScript.BuildAndroid
 
 echo 'Attempting to zip builds'
 zip -r "$(pwd)/Build/linux.zip" "$(pwd)/Build/linux/"
