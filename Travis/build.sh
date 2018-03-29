@@ -15,7 +15,7 @@ echo "Attempting to build $project for Windows"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
+ -executeMethod BuildScript.Windows \
  -quit
 
 echo "Attempting to build $project for OS X"
@@ -25,7 +25,7 @@ echo "Attempting to build $project for OS X"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -buildOSXUniversalPlayer "$(pwd)/Build/osx/$project.app" \
+ -executeMethod BuildScript.OSX \
  -quit
 
 echo "Attempting to build $project for Linux"
@@ -35,7 +35,7 @@ echo "Attempting to build $project for Linux"
  -silent-crashes \
  -logFile \
  -projectPath $(pwd)/ \
- -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project" \
+ -executeMethod BuildScript.Linux \
  -quit
 
 echo "Attempting to build $project for WebGL"
@@ -46,7 +46,7 @@ echo "Attempting to build $project for WebGL"
  -logFile \
  -projectPath $(pwd)/ \
  -quit \
- -executeMethod BuildScript.BuildWebGL "$(pwd)/Build/webgl"
+ -executeMethod BuildScript.WebGL
 
 # export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 # export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
@@ -60,9 +60,21 @@ echo "Attempting to build $project for WebGL"
 #   -logFile \
 #   -projectPath $(pwd)/ \
 #   -quit \
-# -executeMethod BuildScript.BuildAndroid $(pwd)/Build/android/${project}.${versionName}.apk
+#   -executeMethod BuildScript.Android
+
+# echo "Attempting to build $project for iOS"
+# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+#   -batchmode \
+#   -nographics \
+#   -silent-crashes \
+#   -logFile \
+#   -projectPath $(pwd)/ \
+#   -quit \
+#   -executeMethod BuildScript.iOS
 
 echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/linux.zip $(pwd)/Build/linux
-zip -r $(pwd)/Build/mac.zip $(pwd)/Build/osx
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows
+cd $(pwd)/Build
+tar -czvf linux.tar.gz linux/
+hdiutil create osx.dmg -srcfolder osx/ -ov
+zip -r windows.zip windows/
+# zip -r ios.zip ios/
