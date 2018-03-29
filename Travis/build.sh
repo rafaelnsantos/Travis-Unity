@@ -63,6 +63,7 @@ echo "Attempting to build $project for WebGL"
 #   -executeMethod BuildScript.BuildAndroid
 
 echo 'Attempting to zip builds'
-zip -r "$(pwd)/Build/linux.zip" "$(pwd)/Build/linux/"
-zip -r "$(pwd)/Build/osx.zip" "$(pwd)/Build/osx/"
-zip -r "$(pwd)/Build/windows.zip" "$(pwd)/Build/windows/"
+cd $(pwd)/Build
+zip -r linux.zip linux/
+zip -r osx.zip osx/
+zip -r windows.zip windows/

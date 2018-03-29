@@ -20,30 +20,31 @@ public class BuildScript {
     }
 
     public static void WebGL () {
-        Build(BuildTarget.WebGL, "Builds/webgl/");
+        Build(BuildTargetGroup.WebGL, BuildTarget.WebGL, "Builds/webgl/");
     }
 
     public static void OSX () {
-        Build(BuildTarget.StandaloneOSX, "Builds/osx/" + GetProjectName() + ".app");
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, "Builds/osx/" + GetProjectName() + ".app");
     }
 
     public static void Windows () {
-        Build(BuildTarget.StandaloneWindows64, "Builds/windows/" + GetProjectName() + ".exe");
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, "Builds/windows/" + GetProjectName() + ".exe");
     }
 
     public static void Linux () {
-        Build(BuildTarget.StandaloneLinux64, "Builds/linux/" + GetProjectName());
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneLinux64, "Builds/linux/" + GetProjectName());
     }
 
     public static void Android () {
-        Build(BuildTarget.Android, "Builds/android");
+        Build(BuildTargetGroup.Android, BuildTarget.Android, "Builds/android");
     }
 
     public static void iOS () {
-        Build(BuildTarget.iOS, "Builds/iOS");
+        Build(BuildTargetGroup.iOS, BuildTarget.iOS, "Builds/iOS");
     }
 
-    public static void Build (BuildTarget target, string buildPath) {
+    public static void Build (BuildTargetGroup targetGroup, BuildTarget target, string buildPath) {
+        EditorUserBuildSettings.SwitchActiveBuildTarget(targetGroup, target);
         BuildPipeline.BuildPlayer(GetScenePaths(), buildPath, target,
             BuildOptions.None);
     }
