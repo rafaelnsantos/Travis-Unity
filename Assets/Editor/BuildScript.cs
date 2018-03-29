@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 public class BuildScript {
@@ -20,23 +18,23 @@ public class BuildScript {
     }
 
     public static void WebGL () {
-        Build(BuildTargetGroup.WebGL, BuildTarget.WebGL, "Builds/webgl/");
+        Build(BuildTargetGroup.WebGL, BuildTarget.WebGL, "Build/webgl/");
     }
 
     public static void OSX () {
-        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, "Builds/osx/" + GetProjectName() + ".app");
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, "Build/osx/" + GetProjectName() + ".app");
     }
 
     public static void Windows () {
-        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, "Builds/windows/" + GetProjectName() + ".exe");
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, "Build/windows/" + GetProjectName() + ".exe");
     }
 
     public static void Linux () {
-        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneLinux64, "Builds/linux/" + GetProjectName());
+        Build(BuildTargetGroup.Standalone, BuildTarget.StandaloneLinux64, "Build/linux/" + GetProjectName());
     }
 
     public static void Android () {
-        Build(BuildTargetGroup.Android, BuildTarget.Android, "Builds/android");
+        Build(BuildTargetGroup.Android, BuildTarget.Android, "Build/android");
     }
 
     public static void iOS () {

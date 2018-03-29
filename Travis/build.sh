@@ -46,7 +46,7 @@ echo "Attempting to build $project for WebGL"
  -logFile \
  -projectPath $(pwd)/ \
  -quit \
- -executeMethod BuildScript.WebGL "$(pwd)/Build/webgl"
+ -executeMethod BuildScript.WebGL
 
 # export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 # export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
