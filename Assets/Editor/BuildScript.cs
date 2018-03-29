@@ -38,7 +38,7 @@ public class BuildScript {
     }
 
     public static void iOS () {
-        Build(BuildTargetGroup.iOS, BuildTarget.iOS, "Builds/iOS");
+        Build(BuildTargetGroup.iOS, BuildTarget.iOS, "Builds/ios");
     }
 
     public static void Build (BuildTargetGroup targetGroup, BuildTarget target, string buildPath) {
