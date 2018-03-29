@@ -62,19 +62,19 @@ echo "Attempting to build $project for WebGL"
 #   -quit \
 #   -executeMethod BuildScript.Android
 
-echo "Attempting to build $project for iOS"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-  -batchmode \
-  -nographics \
-  -silent-crashes \
-  -logFile \
-  -projectPath $(pwd)/ \
-  -quit \
-  -executeMethod BuildScript.iOS
+# echo "Attempting to build $project for iOS"
+# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+#   -batchmode \
+#   -nographics \
+#   -silent-crashes \
+#   -logFile \
+#   -projectPath $(pwd)/ \
+#   -quit \
+#   -executeMethod BuildScript.iOS
 
 echo 'Attempting to zip builds'
 cd $(pwd)/Build
 zip -r linux.zip linux/
-zip -r osx.zip osx/
+hdiutil create osx.dmg -srcfolder osx/ -ov
 zip -r windows.zip windows/
-zip -r ios.zip ios/
+# zip -r ios.zip ios/
