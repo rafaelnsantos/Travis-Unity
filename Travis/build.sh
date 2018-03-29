@@ -74,7 +74,7 @@ echo "Attempting to build $project for WebGL"
 
 echo 'Attempting to zip builds'
 cd $(pwd)/Build
-zip -r linux.zip linux/
+tar -czvf linux.tar.gz linux/
 hdiutil create osx.dmg -srcfolder osx/ -ov
 zip -r windows.zip windows/
 # zip -r ios.zip ios/

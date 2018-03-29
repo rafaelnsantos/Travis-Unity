@@ -39,7 +39,7 @@ deploy:
   api_key: $GIT_TOKEN
   file: 
   - ./Build/windows.zip
-  - ./Build/linux.zip
+  - ./Build/linux.tar.gz
   - ./Build/osx.dmg
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
   skip_cleanup: true
